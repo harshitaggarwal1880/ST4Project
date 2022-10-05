@@ -2,7 +2,8 @@
 
 const mongoose = require('mongoose')
 
-const mongoURI = "mongodb://localhost:27017"
+// mongodb database uri string from mongocompass of localhost 
+const mongoURI = "mongodb://localhost:27017/cloudbook"  // localhost with cloudbook database
 
 const connecttomongo =() =>{
     mongoose.connect(mongoURI, ()=>{
