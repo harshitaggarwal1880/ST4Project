@@ -17,15 +17,24 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET_KEY = "shhhhhh";
 
 
+
+// importing a middleware
+
+const fetchUserid = require("../middleware/fetchUserid")
+
+
 router.use('/authall/', require('./authall'));
 
 
 
 // express validator for data validtion wihh post method 
 
+// body() is a middleware used to validate the incoming data as per the fields
 const { body, validationResult} = require('express-validator');
 
-// create a new user (store new data of user into mongodb)
+
+
+// ROUTE 1 :  create a new user (store new data of user into mongodb)
 router.post('/createuser', [ 
     body('email','Enter the valid Email').isEmail(),
     body('name','Enter the valid Name').isLength({ min:5 }),
@@ -67,7 +76,7 @@ router.post('/createuser', [
     const jwtToken = jwt.sign(data,JWT_SECRET_KEY);
 
     // we sending jwt token to user
-    res.json({jwtToken});
+    res.json({jwtToken});    // here we use es6, means it return { jwtToken : jwtToken }
     }
 
     catch(error){
@@ -77,6 +86,69 @@ router.post('/createuser', [
     
 })
 
+
+
+// ROUTE 2 : for verify lofin crendential and give a authentication token for further operation
+
+router.post('/login', [
+    body('email','Please enter Valid email').isEmail(),   // body() is a middleware used to validate the incoming data as per the fields
+    body('password','Please Enter Valid Password').isLength({min:1})
+] , async (req,res) => {
+    
+    const error = validationResult(req)
+    if(!error.isEmpty()){
+        return res.status(400).json({ errors:error.array() });
+    } 
+
+    const{ email, password } = req.body;
+
+    try {
+        let user = await User.findOne({email});
+        if(!user){
+            return res.status(400).json({error: "Please try to login with correct crendential"})
+        }
+
+        const passwordcompare = await bcrypt.compare(password, user.password);
+        if(!passwordcompare){
+            return res.status(400).json({error: "Please try to login with correct crendential"})
+        }
+
+        const data = {
+            user:{
+                id: user.id
+            }
+        }
+
+        const AuthToken = jwt.sign(data, JWT_SECRET_KEY);
+
+        res.json({AuthToken});
+
+    } 
+    catch (error) {
+
+        res.status(500).send("Internal Server Error")
+
+    }
+
+})
+
+
+
+// ROUTE 3: Get logged user details using : "/api/auth/getuser" : Login Required
+// in this route, we create a middleware function , which decode the authentication token coming from the user as a header , middleware decode the token and return userid, then using id , we get all user information using id. So by using middleware, we dont want to write that code again and agian in all routes.simply we use that middle in all routes
+// middleware : middleware is a function which runs everytime , when a route calls , then after middleware function runs , other functions runs.
+
+router.post('/getuser', fetchUserid, async (req, res)=>{
+    try {
+        const userid = req.user.id;
+        const user = await User.findById(userid).select("-password");
+        res.json({user})
+    }
+    catch (error) {
+        res.status(500).send("Internal Server Error")
+    }
+
+})
 
 
 
