@@ -1,0 +1,9 @@
+
+
+// ------------ Context Api -------------
+
+React Context is a way to manage state globally.
+
+The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on. Context is also touted as an easier, lighter approach to state management using Redux
+
+If we want to use same state in different compoents , then we use context api , because if we pass state in different compoents as props, then We have to pass state In compoents many time , we have to do props-driling many time , which is unnecessay for many components , then to direct use of State as global variable , we use context api which make our state globally avialble .
