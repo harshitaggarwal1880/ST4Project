@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 
 const Navbar = () => {
@@ -9,12 +9,12 @@ const Navbar = () => {
   // useLocation: This hook returns the location object of current url used by the react-router. This object represents the current URL and is immutable. Whenever the URL changes, the useLocation() hook returns a newly updated location object.
   const location = useLocation();
   
-  useEffect(() => {
+  // useEffect(() => {
     
-    console.log(location);
-    console.log(location.pathname);
+  //   // console.log(location);
+  //   // console.log(location.pathname);
 
-  }, [])
+  // }, [])
   
 
   return (
@@ -44,6 +44,16 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className={`nav-link ${location.pathname==='/about'?"active":""}`} to="/about">
                 About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${location.pathname==='/notes'?"active":""}`} to="/notes">
+                Notes
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${location.pathname==='/addnote'?"active":""}`} to="/addnote">
+                Add Note
               </Link>
             </li>
       
