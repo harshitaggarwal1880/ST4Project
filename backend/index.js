@@ -9,6 +9,13 @@ const connecttomongo = require('./db');
 const express = require('express')    // importing express from express module 
 const app = express()                 // creating app instance from express 
 
+
+var cors = require('cors')
+
+app.use(cors())
+
+
+
 // connect with mongodb database
 connecttomongo();
 
