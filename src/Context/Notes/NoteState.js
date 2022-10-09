@@ -139,12 +139,23 @@ const NoteState =(props) =>{
 
     // Delete a Note
     const deletenote =(id)=>{
-
+      // console.log(id)
+      const newnotes = notes.filter((note)=>{
+        return note._id!==id;
+      })
+      setNotes(newnotes);
     }
 
     // Edit a Note
-    const editnote =(id)=>{
-
+    const editnote =(id,title,description,tag)=>{
+      for(let x = 0; x<notes.length;x++){
+        const element = notes[x];
+        if(element._id === id){
+          element.title = title;
+          element.description = description; 
+          element.tag = tag;
+        }
+      }
     }
 
 

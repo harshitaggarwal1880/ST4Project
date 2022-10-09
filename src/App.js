@@ -22,7 +22,7 @@ function App() {
         
         <Navbar/>
 
-        <Alert message="This is the alert" />
+        {/* <Alert message="This is the alert" /> */}
         
         <Routes>
             <Route exact path="/" element={<Home/>}/> 

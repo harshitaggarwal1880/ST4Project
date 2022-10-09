@@ -36,6 +36,7 @@ const AddNote = () => {
             aria-describedby="emailHelp"
             placeholder="Enter Title"
             onChange={onchange}
+            
           />
           <small id="emailHelp" className="form-text text-muted">
             This is the Title of the Note
@@ -51,7 +52,7 @@ const AddNote = () => {
             name="description"
             placeholder="Description"
             onChange={onchange}
-
+            
           />
         </div>
         
