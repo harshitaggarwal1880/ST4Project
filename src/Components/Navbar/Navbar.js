@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 // import { useEffect } from "react";
 
 
 const Navbar = () => {
-  
+
+  const navigate = useNavigate();
+
   // useLocation: This hook returns the location object of current url used by the react-router. This object represents the current URL and is immutable. Whenever the URL changes, the useLocation() hook returns a newly updated location object.
   const location = useLocation();
   
@@ -16,6 +18,10 @@ const Navbar = () => {
 
   // }, [])
   
+  const handellogout = ()=>{
+    localStorage.removeItem('token');
+    navigate("/login");
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -43,7 +49,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${location.pathname==='/about'?"active":""}`} to="/about">
-                About
+                Contact us
               </Link>
             </li>
             <li className="nav-item">
@@ -59,15 +65,12 @@ const Navbar = () => {
       
           </ul>
           
-            
-          <button className="btn btn-primary mx-3" type="button">
-              Login
-          </button>
+          {!localStorage.getItem('token')? <form>
+          <Link className="btn btn-primary mx-3" to="/login" type="button"> Login </Link>
+          <Link className="btn btn-success" to="/signup" type="button"> Sign up </Link> 
+          </form>:<button className="btn btn-success" onClick={handellogout} type="button"> Logout </button>}
 
-          <button className="btn btn-success" type="button">
-              Sign up
-          </button>
-          
+
         </div>
       </div>
     </nav>

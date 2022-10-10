@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="container">
       <h1> Home </h1>
-      <p1>
+      <p>
         <h3> What is Lorem Ipsum? </h3>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -58,7 +58,7 @@ const Home = () => {
         sentence structures, to generate Lorem Ipsum which looks reasonable. The
         generated Lorem Ipsum is therefore always free from repetition, injected
         humour, or non-characteristic words etc.
-      </p1>
+      </p>
     </div>
   );
 };

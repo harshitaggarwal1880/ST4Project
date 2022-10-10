@@ -41,9 +41,10 @@ router.post('/createuser', [
     body('password','Enter the valid password of length more than 4 characters`').isLength({ min:5 })    
 ] , async (req, res)=>{
 
+    let success = false;
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        return res.status(400).json({ errors:errors.array() });
+        return res.status(400).json({ success, errors:errors.array() });
     } 
 
 
@@ -51,7 +52,7 @@ router.post('/createuser', [
     try{
     let user = await User.findOne({email: req.body.email})  // findOne find a same email in mongodb databse, if exist , it return that user data
     if(user){
-        return res.status(400).json({error: "User with Same Email exits already", UserAlready: user})
+        return res.status(400).json({success,error: "User with Same Email exits already", UserAlready: user})
     }
 
     // here we generate a salt from bcrypt package
@@ -74,14 +75,14 @@ router.post('/createuser', [
 
     // here we generate a json web token by signing with secret key using jwt package and here we using mongodb user document id as data, so that id retrieval from db is efficient.
     const jwtToken = jwt.sign(data,JWT_SECRET_KEY);
-
+    success = true;
     // we sending jwt token to user
-    res.json({jwtToken});    // here we use es6, means it return { jwtToken : jwtToken }
+    res.json({success,jwtToken});    // here we use es6, means it return { jwtToken : jwtToken }
     }
 
     catch(error){
         console.log(error.message)
-        res.status(500).send("Something went Wrong");
+        res.status(500).json({success, error:"Something went Wrong"});
     } 
     
 })
@@ -95,6 +96,7 @@ router.post('/login', [
     body('password','Please Enter Valid Password').isLength({min:1})
 ] , async (req,res) => {
     
+    let success = false;
     const error = validationResult(req)
     if(!error.isEmpty()){
         return res.status(400).json({ errors:error.array() });
@@ -105,12 +107,12 @@ router.post('/login', [
     try {
         let user = await User.findOne({email});
         if(!user){
-            return res.status(400).json({error: "Please try to login with correct crendential"})
+            return res.status(400).json({success,error: "Please try to login with correct crendential"})
         }
 
         const passwordcompare = await bcrypt.compare(password, user.password);
         if(!passwordcompare){
-            return res.status(400).json({error: "Please try to login with correct crendential"})
+            return res.status(400).json({success,error: "Please try to login with correct crendential"})
         }
 
         const data = {
@@ -120,9 +122,9 @@ router.post('/login', [
         }
 
         const AuthToken = jwt.sign(data, JWT_SECRET_KEY);
-
-        res.json({AuthToken});
-
+        success = true;
+        res.json({ success, AuthToken});
+        
     } 
     catch (error) {
 
