@@ -56,7 +56,7 @@ const NoteState =(props) =>{
         body: JSON.stringify({title, description,tag})
       });
       const json = await response.json()
-      // console.log(json)
+      // console.log(json)    
 
 
       // console.log("Adding a new Note");

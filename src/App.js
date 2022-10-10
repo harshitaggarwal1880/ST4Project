@@ -7,7 +7,7 @@ import About from './Components/About/About';
 import NoteState from './Context/Notes/NoteState';
 import Notes from './Components/Notes/Notes';
 import Alert from './Components/Alert/Alert';
-import AddNote from './Components/AddNote/AddNote';
+// import AddNote from './Components/AddNote/AddNote';
 import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import { useState } from 'react';
