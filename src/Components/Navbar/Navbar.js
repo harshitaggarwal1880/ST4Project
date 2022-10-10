@@ -57,11 +57,7 @@ const Navbar = () => {
                 Notes
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className={`nav-link ${location.pathname==='/addnote'?"active":""}`} to="/addnote">
-                Add Note
-              </Link>
-            </li>
+           
       
           </ul>
           
