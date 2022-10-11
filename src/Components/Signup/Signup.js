@@ -27,7 +27,8 @@ const Signup = (props) => {
           const json = await response.json()
           console.log(json)
           if(json.success){
-            // save the auth token and redirect to home page
+            // save the auth token and redirect to home page\
+            console.log(json);
             localStorage.setItem('token', json.AuthToken)
 
             // here we use useNavigate hook to navigate to another url in js

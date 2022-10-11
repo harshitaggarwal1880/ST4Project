@@ -33,12 +33,12 @@ const NoteState =(props) =>{
         method: 'GET', 
         headers: {
           'Content-Type': 'application/json',
-          "auth-token": localStorage.getItem('token')
+          'auth-token': localStorage.getItem('token')
         },
         
       });
       const json = await response.json()
-      //  console.log(json)
+       console.log(json)
       setNotes(json)
     }
 
@@ -51,12 +51,12 @@ const NoteState =(props) =>{
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
-          "auth-token": localStorage.getItem('token')
+          'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify({title, description,tag})
       });
       const json = await response.json()
-      // console.log(json)    
+      console.log(json)    
 
 
       // console.log("Adding a new Note");

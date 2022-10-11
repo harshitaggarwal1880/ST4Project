@@ -10,7 +10,7 @@ const fetchUserid = (req, res, next) =>{
     const token = req.header('auth-token');
 
     if(!token){
-        res.status(401).send({error: "Please Authenticate using a valid token"})
+        res.status(401).send({error: "Please Authenticates using a valid token"})
     }
 
     try {

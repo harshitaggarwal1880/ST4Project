@@ -74,10 +74,10 @@ router.post('/createuser', [
     }
 
     // here we generate a json web token by signing with secret key using jwt package and here we using mongodb user document id as data, so that id retrieval from db is efficient.
-    const jwtToken = jwt.sign(data,JWT_SECRET_KEY);
+    const AuthToken = jwt.sign(data,JWT_SECRET_KEY);
     success = true;
     // we sending jwt token to user
-    res.json({success,jwtToken});    // here we use es6, means it return { jwtToken : jwtToken }
+    res.json({success,AuthToken});    // here we use es6, means it return { jwtToken : jwtToken }
     }
 
     catch(error){

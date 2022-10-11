@@ -2,5 +2,5 @@
 .card-body{
     border-left: 5px solid orange;
     background: antiquewhite;
-    border-radius: 0;
+    /* border-radius: 0; */
 }

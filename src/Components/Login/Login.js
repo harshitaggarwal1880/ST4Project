@@ -27,7 +27,9 @@ const Login = (props) => {
           console.log(json)
           if(json.success){
             // save the auth token and redirect to home page
-            localStorage.setItem('token', json.AuthToken)
+          console.log(json)
+
+            localStorage.setItem('token', json.AuthToken);
 
             // here we use useNavigate hook to navigate to another url in js
             navigate("/");

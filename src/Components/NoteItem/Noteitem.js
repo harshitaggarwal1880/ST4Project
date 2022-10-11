@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-// import './Noteitem.css'
+import './Noteitem.css'
 
 import noteContext from "../../Context/Notes/noteContext";
 
@@ -13,7 +13,7 @@ const Noteitem = (props) => {
 
   
   return (
-    <div className="col-md-3">
+    <div className="">
       <div className="card my-3">
         <div className="card-body">
           <h5 className="card-title">{note.title}</h5>
