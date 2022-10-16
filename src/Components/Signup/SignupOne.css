@@ -1,0 +1,36 @@
+
+
+body{
+    height:100vh;
+    /* display:flex; */
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    background: #ddd;
+}
+  
+
+labelsign { 
+    font-size: large;
+    font-weight: bold;
+    margin: 5px;
+    position: "initial";
+    color: "black"; 
+}
+
+.card{
+    overflow:hidden;
+    border-radius:10px;
+    /* min-height:500px; */
+  
+}
+  
+.img-left{
+    width:45%;
+    /* background: url("https://images.unsplash.com/photo-1665006518423-b81a193b4100?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80") center; */
+    background-size: cover;
+}
+  
+.card-body{
+    padding:2rem;
+}

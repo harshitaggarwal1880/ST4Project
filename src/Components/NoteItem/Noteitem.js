@@ -20,7 +20,7 @@ const Noteitem = (props) => {
           <p className="card-text">
             {note.description}
           </p>
-          <button className="btn btn-primary m-1" type="button" onClick={()=>{ deletenote(note._id); 
+          <button className="btn btn-primary m-1" type="button" onClick={()=>{ deletenote(note.id); 
             showAlert("Deleted Successfully", "success"); }}> Delete </button>
           <button className="btn btn-primary m-1" type="button" onClick={() =>{ updateNote(note);}}> Edit </button>
         </div>

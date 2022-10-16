@@ -1,25 +1,13 @@
 import React , { useState } from 'react'
 import NoteContext from './noteContext'
+const fetchUserid = require('../middleware/fetchUserid')
 
 const NoteState =(props) =>{
     
-    // const stat = {
-    //     "name": "Harsh",
-    //     "class": "5b"
-    // }
-
-    // const [state, setstate] = useState(stat);
-
-    // const update = () =>{
-    //     setTimeout(()=>{
-    //         setstate({
-    //             "name":"Harshit",
-    //             "class":"12b"
-    //         })
-    //     },1000);
-    // }
-    
-    const host = "http://localhost:5000"
+  
+  
+    // const host = "http://localhost:5000"
+    const apihost = "http://localhost:4000"
 
     const state =[];
 
@@ -29,11 +17,13 @@ const NoteState =(props) =>{
 
     
     const getnotes = async ()=>{
-      const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+
+      const userid = fetchUserid();
+
+      const response = await fetch(`${apihost}/users/${userid}/notes`, {
         method: 'GET', 
         headers: {
           'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
         },
         
       });
@@ -42,18 +32,25 @@ const NoteState =(props) =>{
       setNotes(json)
     }
 
+
+
+
     const addnote = async(title, description, tag) =>{
 
       // call the API to add a note and get a new note With id and detais
       
       // call an API 
-      const response = await fetch(`${host}/api/notes/addnote`, {
+
+      const userid = fetchUserid();
+
+      const response = await fetch(`${apihost}/notes`, {
         method: 'POST', 
         headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
+          'Content-Type': 'application/json'
+          // "auth-token": localStorage.getItem('token')
+
         },
-        body: JSON.stringify({title, description,tag})
+        body: JSON.stringify({title, description,tag,userId: userid.id})
       });
       const json = await response.json()
       console.log(json)    
@@ -72,11 +69,11 @@ const NoteState =(props) =>{
 
       // console.log(id)
       // call an API 
-      const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+      const response = await fetch(`${apihost}/notes/${id}`, {
         method: 'DELETE', 
         headers: {
-          'Content-Type': 'application/json',
-          "auth-token": localStorage.getItem('token')
+          'Content-Type': 'application/json'
+          // "auth-token": localStorage.getItem('token')
         },
         
       });
@@ -86,22 +83,25 @@ const NoteState =(props) =>{
 
       // console.log(id)
       const newnotes = notes.filter((note)=>{
-        return note._id!==id;
+        return note.id!==id;
       })
       setNotes(newnotes);
     }
 
     // Edit a Note
     const editnote = async (id,title,description,tag)=>{
+
+
+      const userid = fetchUserid();
       
       // call an API 
-      const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+      const response = await fetch(`${apihost}/notes/${id}`, {
         method: 'PUT', 
         headers: {
-          'Content-Type': 'application/json',
-          "auth-token": localStorage.getItem('token')
+          'Content-Type': 'application/json'
+          // "auth-token": localStorage.getItem('token')
         },
-        body: JSON.stringify({title, description,tag})
+        body: JSON.stringify({title, description,tag,userId:userid.id})
         
       });
       const json = await  response.json()
@@ -119,7 +119,7 @@ const NoteState =(props) =>{
       // Logic to edit in client
       for(let x = 0; x<notes.length;x++){
         const element = notes[x];
-        if(element._id === id){
+        if(element.id === id){
           newNotes[x].title = title;
           newNotes[x].description = description; 
           newNotes[x].tag = tag;
@@ -128,8 +128,6 @@ const NoteState =(props) =>{
       }
 
       setNotes(newNotes);
-
-      
 
     }
 

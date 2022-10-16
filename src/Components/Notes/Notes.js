@@ -1,7 +1,7 @@
 import React, { useContext,  useState ,useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import noteContext from "../../Context/Notes/noteContext";
-import AddNote from "../AddNote/AddNote";
+import AddNote from "../AddNotes/AddNote";
 import Noteitem from "../NoteItem/Noteitem";
 
 const Notes = (props) => {
@@ -34,7 +34,7 @@ const Notes = (props) => {
   const updateNote = (currentnote) => {
     console.log("first");
     ref.current.click();
-    setNote({id: currentnote._id,etitle: currentnote.title, edescription: currentnote.description, etag: currentnote.tag});
+    setNote({id: currentnote.id,etitle: currentnote.title, edescription: currentnote.description, etag: currentnote.tag});
 
   };
 
@@ -55,7 +55,7 @@ const Notes = (props) => {
   };
 
   return (
-    <>
+    <div>
       <button
         ref={ref}
         type="button"
@@ -162,12 +162,12 @@ const Notes = (props) => {
         { notes.length>0 && <div className="row">
           {notes.map((note) => {
             return (
-              <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
+              <Noteitem key={note.id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
             );
           })}
         </div>}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import noteContext from '../../Context/Notes/noteContext'
 import { useContext, useState  } from 'react';
-
+import "./AddNote.css"
 
 const AddNote = (props) => {
 
@@ -29,7 +29,7 @@ const AddNote = (props) => {
   return (
     <div className="container">
         <h1 className="heading"> Add a Note </h1>
-      <form onSubmit={handelClick}>
+      <form onSubmit={handelClick} className="form">
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Title</label>
           <input

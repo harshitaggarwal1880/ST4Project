@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "name": "abcsd@gmail.com",
+      "email": "abcsd@gmail.com",
+      "password": "$2a$10$LSlWI6K9.vVjpvL2SBKrF.ltwaYPRMuYdugZWTRZzPXz6NpoGptBm",
+      "id": 1
+    },
+    {
+      "name": "acds@gmail.com",
+      "email": "acds@gmail.com",
+      "password": "$2a$10$0ay6JkEbDxVqOOYcUdKyxujc0Cd5pXJ2fpxEE6ccQiYP2npVqB9le",
+      "id": 2
+    }
+  ],
+  "notes": [
+    {
+      "title": "sgtdg",
+      "description": "fdgdfgf",
+      "tag": "fgdfgdfg",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "title": "dhhnbn",
+      "description": "ghfghgvbnvb",
+      "tag": "ghfghgf",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "title": "gfhfgh",
+      "description": "fghfgh",
+      "tag": "hgfhfgh",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "title": "dfsff",
+      "description": "dsfsf",
+      "tag": "sdfsdf",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "title": "heLLO ",
+      "description": "Description",
+      "tag": "drydtydfgdrg",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "title": "fbhbd",
+      "description": "bfdbfdb",
+      "tag": "fbfdbfb",
+      "userId": 1,
+      "id": 6
+    }
+  ]
+}

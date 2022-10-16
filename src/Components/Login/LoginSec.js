@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./LoginSec.css"
 
 const bcrypt = require('bcryptjs');
 
@@ -84,9 +85,15 @@ const Login = (props) => {
 
 
   return (
-    <div className="container">
-        <h1> Login Page </h1> 
-      <form onSubmit={handelSubmit}>
+    <div>
+
+    <div class='col-lg-10 col-xl-8 card mx-auto d-flex flex-row px-0'>
+      
+    <div class="img-left d-md-flex d-none" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1663640171543-9eef40a4b320?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjU4NzAyNjE&ixlib=rb-1.2.1&q=80")' }}></div>
+    
+    <div class="card-body d-flex flex-column justify-content-center bg-white" style={{height:"70vh"}}>
+        <h2 class="title text-center mt-4 pb-3" style={{fontWeight:"bold"}}>Login into accont</h2>
+        <form onSubmit={handelSubmit}>
         <div className="form-group my-3">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
@@ -125,6 +132,12 @@ const Login = (props) => {
         </div>
       </form>
     </div>
+
+    </div>
+    
+    
+  </div>
+
   );
 };
 

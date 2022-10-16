@@ -1,0 +1,34 @@
+
+
+body{
+    height:100vh;
+    /* display:flex; */
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    background: #ddd;
+}
+  
+
+label { 
+    font-size: large;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.card{
+    overflow:hidden;
+    border-radius:10px;
+    /* min-height:500px; */
+  
+}
+  
+.img-left{
+    width:45%;
+    background: url("./image.jpg") center;
+    background-size: cover;
+}
+  
+.card-body{
+    padding:2rem;
+}

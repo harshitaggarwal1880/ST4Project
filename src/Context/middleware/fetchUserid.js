@@ -4,27 +4,24 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET_KEY = "shhhhhh";
 
 
-const fetchUserid = (req, res, next) =>{
+const fetchUserid = () =>{
 
     // get the user from the jwt token and add id to req objeect
-    const token = req.header('auth-token');
+    const token = localStorage.getItem('token')
 
     if(!token){
-        res.status(401).send({error: "Please Authenticates using a valid token"})
+        return false;
     }
 
     try {
     // here we get data , which we give data when we generate or sign token using jwt package 
     const data = jwt.verify(token,JWT_SECRET_KEY);
 
-    req.user = data.user; 
-
-
-    next();    // here next means , when middleware function end , then runs other next function    
+    return data.user; 
 
     } 
     catch (error) {
-        res.status(401).send({error: "Please Authenticate using a valid token"})   
+        return false;
     }
     
 }

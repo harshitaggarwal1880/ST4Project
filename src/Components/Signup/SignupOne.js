@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate , Link } from "react-router-dom";
 
+import "./SignupOne.css"
+
 const bcrypt = require('bcryptjs');
 
 // jwt authentication 
@@ -36,8 +38,8 @@ const Signup = (props) => {
       const response1 = await fetch(`${apihost}/users`, {
         method: 'GET', 
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
         
       });
       const json1 = await response1.json()
@@ -47,11 +49,11 @@ const Signup = (props) => {
 
 
 
-      useEffect(() => {
+    useEffect(() => {
         
         getusers();
         
-      }, [])
+    }, [])
       
       
 
@@ -113,12 +115,17 @@ const Signup = (props) => {
     }
 
   return (
-    <div className="my-3">
-        <div className="container">
-            <h1> Sign Up Page</h1>
-      <form onSubmit={handelSubmit}>
-        <div className="form-group my-3">
-          <label htmlFor="exampleInputEmail1">Name</label>
+    <div>
+
+    <div className='col-lg-10 col-xl-8 card mx-auto d-flex flex-row px-0'>
+      
+    <div className="img-left d-md-flex d-none" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1665006518423-b81a193b4100?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80")' }}></div>
+    
+    <div className="card-body d-flex flex-column justify-content-center bg-white">
+        <h2 className="title text-center mt-2 pb-1">Register into accont</h2>
+        <form onSubmit={handelSubmit}>
+        <div className="form-group my-1">
+          <label htmlFor="exampleInputEmail1" className="labelsign" >Name</label>
           <input
             type="text"
             className="form-control"
@@ -133,8 +140,8 @@ const Signup = (props) => {
           />
         </div>
 
-        <div className="form-group my-3">
-          <label htmlFor="exampleInputEmail1">Email address</label>
+        <div className="form-group my-1">
+          <label htmlFor="exampleInputEmail1" className="labelsign">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -151,8 +158,8 @@ const Signup = (props) => {
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className="form-group my-3">
-          <label htmlFor="exampleInputPassword1">Password</label>
+        <div className="form-group my-1">
+          <label htmlFor="exampleInputPassword1" className="labelsign">Password</label>
           <input
             type="password"
             minLength={5}
@@ -165,8 +172,8 @@ const Signup = (props) => {
             required
           />
         </div>
-        <div className="form-group my-3">
-          <label htmlFor="exampleInputPassword1">Confirm Password</label>
+        <div className="form-group my-1">
+          <label htmlFor="exampleInputPassword1" className="labelsign">Confirm Password</label>
           <input
             type="password"
             className="form-control"
@@ -179,7 +186,7 @@ const Signup = (props) => {
           />
         </div>
         
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary my-1">
           Submit
         </button>  
         <div className="mx-2 d-inline">
@@ -188,7 +195,12 @@ const Signup = (props) => {
         </div>
       </form>
     </div>
+
     </div>
+    
+    
+  </div>
+
   )
 }
 

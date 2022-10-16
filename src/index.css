@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+labelsign { 
+  font-size: large;
+  font-weight: bold;
+  margin: 5px;
+  position: "initial";
+  color: "black"; 
+}
