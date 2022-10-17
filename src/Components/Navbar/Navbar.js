@@ -73,10 +73,10 @@ const Navbar = () => {
   
     <nav style={{background:"#1d2026", color:"white"}}>
 
-         {/* <img
-            src="https://i.postimg.cc/DydN4snm/menu.png"
+          {/* <img
+            src="https://www.canva.com/design/DAFPQKGH8Z8/EAsckyCB2eBnLRF1DWCJbA/view?utm_content=DAFPQKGH8Z8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
             alt=""
-            className="menu-img"
+            // className="menu-img"
           /> */}
           <Link to="/"> <h2 style={{fontFamily:"cursive", fontWeight:"bold"}}> MyWorld</h2> </Link>
           {/* <img

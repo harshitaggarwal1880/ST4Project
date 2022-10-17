@@ -19,3 +19,86 @@ labelsign {
   position: "initial";
   color: "black"; 
 }
+
+
+
+/* --------------- Notess ------------- */
+
+
+
+.notess-body{
+  background-color: #f0cd1ba8;
+  margin: 0;
+  padding: 0;
+  font-family: "Architects-Daughter";
+  font-size: 24px;
+  /* height: 100vh; */
+}
+
+.main-container-note{
+  width: 95%;
+  margin: auto;
+}
+
+.container1{
+  margin-left: 5%;
+}
+
+.container2{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 5%;
+}
+
+.container3{
+  display: none;
+  position: absolute;
+  top: 26%;
+  left: 40%;
+
+}
+
+#edescription{
+  box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 75);
+  outline: none;
+  border: none;
+  width: 300px;
+  height: 275px;
+  padding: 40px 25px 24px 25px;
+}
+
+#check-icon{
+  color: black;
+  position: absolute;
+  right: 17%;
+  top: 4%;
+  cursor: pointer;
+}
+
+#cross-icon{
+  color: black;
+  position: absolute;
+  right: 5%;
+  top: 4%;
+  cursor: pointer;  
+}
+
+
+
+/*  ------------- Note item =------------ */
+
+.note-item{
+  width: 250px;
+  height: 250px;
+  font-size: 26px;
+  padding: 25px;
+  margin-top: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 75);
+}
+
+.note-item:hover{
+  transform: scale(1.1);
+}

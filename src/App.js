@@ -6,7 +6,7 @@ import { BrowserRouter , Routes, Route} from 'react-router-dom'
 import About from './Components/About/About';
 import NoteState from './Context/Notes/NoteState';
 import Notes from './Components/Notes/Notes';
-import AddNotes from './Components/AdddNotes/AddNotes';
+import Notess from './Components/Notess/Notess';
 import Alert from './Components/Alert/Alert';
 // import AddNote from './Components/AddNote/AddNote';
 // import Login from './Components/Login/Login';
@@ -51,7 +51,7 @@ function App() {
             <Route exact path="/" element={<Home showAlert={showAlert} />}/> 
             <Route exact path="/about" element={<About/>}/>         
             <Route exact path="/notes"  element={<Notes key="notes-real" showAlert={showAlert} />}/>         
-            <Route exact path="/addnotes"  element={<AddNotes key="notes" showAlert={showAlert} />}/>         
+            <Route exact path="/addnotes"  element={<Notess key="notes" showAlert={showAlert} />}/>         
             <Route exact path="/login"  element={<LoginSec showAlert={showAlert} />}/>         
             <Route exact path="/signup" element={<SignupOne showAlert={showAlert} />}/>         
         </Routes>

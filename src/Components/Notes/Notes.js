@@ -25,9 +25,9 @@ const Notes = (props) => {
 
   const [note, setNote] = useState({
     id: "",
-    etitle: "",
+    etitle: "title",
     edescription: "",
-    etag: "",
+    etag: "Personal ",
   });
 
 

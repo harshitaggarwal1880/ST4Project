@@ -19,8 +19,9 @@ const NoteState =(props) =>{
     const getnotes = async ()=>{
 
       const userid = fetchUserid();
+      console.log(userid)
 
-      const response = await fetch(`${apihost}/users/${userid}/notes`, {
+      const response = await fetch(`${apihost}/users/${userid.id}/notes`, {
         method: 'GET', 
         headers: {
           'Content-Type': 'application/json',
