@@ -25,11 +25,17 @@ labelsign {
 /* --------------- Notess ------------- */
 
 
+body{
+  background-color: #f0cd1ba8;
+
+}
+
 
 .notess-body{
   background-color: #f0cd1ba8;
   margin: 0;
   padding: 0;
+  height:100vh;
   font-family: "Architects-Daughter";
   font-size: 24px;
   /* height: 100vh; */
@@ -67,6 +73,7 @@ labelsign {
   width: 300px;
   height: 275px;
   padding: 40px 25px 24px 25px;
+  /* font-size: large; */
 }
 
 #check-icon{

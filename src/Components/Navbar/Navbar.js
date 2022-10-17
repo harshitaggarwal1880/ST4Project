@@ -91,7 +91,7 @@ const Navbar = () => {
             </Link>
             </li>
             <li>
-            <Link className={`nav-link ${location.pathname==='/about'?"active":""}`} to="/about">
+            <Link className={`nav-link ${location.pathname==='/contact'?"active":""}`} to="/contact">
                  Contact us
                </Link>
             </li>
@@ -100,12 +100,12 @@ const Navbar = () => {
                  Notes
             </Link>
             </li>
-            <li>
+            {/* <li>
             <Link className={`nav-link ${location.pathname==='/notes'?"active":""}`} to="/addnotes">
                 Add Notes
             </Link>
             </li>
-          
+           */}
           
           </ul>
 

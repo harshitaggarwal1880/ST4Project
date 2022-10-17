@@ -1,9 +1,9 @@
 import React from "react";
 // import { useEffect, useContext } from 'react'
 // import noteContext from '../../Context/Notes/noteContext'
-import "./About.css";
+import "./Contact.css";
 
-const About = () => {
+const Contact = () => {
   // const a = useContext(noteContext);
 
   // useEffect(() => {
@@ -75,4 +75,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Contact;
